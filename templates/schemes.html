@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block content %}
+<section class="schemes py-12 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">
+      Government Schemes for Farmers
+    </h2>
+    <ul class="scheme-list space-y-6">
+      {% for scheme in schemes %}
+      <li
+        class="bg-white rounded-lg text-green-600 p-6 transition transform hover:-translate-y-1 hover:shadow-xl"
+      >
+        <h3 class="text-2xl font-semibold mb-4">{{ scheme.title }}</h3>
+        <p class="text-gray-700 leading-relaxed">{{ scheme.description }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

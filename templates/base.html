@@ -1,0 +1,154 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crop Cultivation and Fertilizer System</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <nav class="bg-white shadow">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a
+          href="{{ url_for('home') }}"
+          class="text-2xl font-bold text-green-600"
+        >
+          Crop Cultivation System
+        </a>
+        <ul class="flex space-x-4">
+          <li>
+            <a
+              href="{{ url_for('home') }}"
+              class="text-gray-600 hover:text-green-600"
+              >Home</a
+            >
+          </li>
+
+          {% if 'username' in session %}
+          <li>
+            <a
+              href="{{ url_for('prediction') }}"
+              class="text-gray-600 hover:text-green-600"
+              >Prediction</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ url_for('schemes') }}"
+              class="text-gray-600 hover:text-green-600"
+              >Schemes</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ url_for('logout') }}"
+              class="text-gray-600 hover:text-green-600"
+              >Logout</a
+            >
+          </li>
+          {% else %}
+          <li>
+            <a
+              href="{{ url_for('register') }}"
+              class="text-gray-600 hover:text-green-600"
+              >Register</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ url_for('login') }}"
+              class="text-gray-600 hover:text-green-600"
+              >Login</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content">{% block content %} {% endblock %}</div>
+
+    <footer class="bg-white shadow mt-4">
+      <div class="container mx-auto px-4 py-4 text-center">
+        <p class="text-gray-600">
+          &copy; 2024 The Code Master. All Rights Reserved.
+        </p>
+        <div class="flex justify-center space-x-4">
+          <a
+            href="https://wa.me/8485867263?text=Hi, How are you?"
+            class="text-green-600"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+          <a href="https://x.com/AlatShailesh" class="text-green-600"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/shailesh-alat-131657257"
+            class="text-green-600"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/shailesh_alat_96k"
+            class="text-green-600"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div
+      id="successModal"
+      class="fixed z-50 inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden"
+    >
+      <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+        <h5 class="text-lg font-bold mb-2">Success</h5>
+        <p id="successMessage"></p>
+        <div class="mt-4">
+          <button
+            class="bg-green-600 text-white px-4 py-2 rounded"
+            onclick="closeModal('successModal')"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div
+      id="errorModal"
+      class="fixed z-50 inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden"
+    >
+      <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+        <h5 class="text-lg font-bold mb-2">Error</h5>
+        <p id="errorMessage"></p>
+        <div class="mt-4">
+          <button
+            class="bg-red-600 text-white px-4 py-2 rounded"
+            onclick="closeModal('errorModal')"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

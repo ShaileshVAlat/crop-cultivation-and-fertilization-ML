@@ -1,0 +1,119 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- Hero Section -->
+<section class="bg-green-600 text-white py-20">
+  <div class="mx-auto text-center">
+    <h1 class="text-4xl font-bold mb-4">Welcome to Crop Cultivation System</h1>
+    <p class="text-lg mb-6">
+      Revolutionizing agriculture with predictive insights for better crop and
+      fertilizer management.
+    </p>
+    {% if session.username %}
+    <a
+      href="{{ url_for('prediction') }}"
+      class="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition duration-200"
+    >
+      Start Recommendation
+    </a>
+    {% else %}
+    <a
+      href="{{ url_for('register') }}"
+      class="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition duration-200"
+    >
+      Register with Us
+    </a>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-20 bg-gray-100">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-semibold mb-8">Our Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div class="bg-white shadow-lg rounded-lg p-6">
+        <img
+          src="{{ url_for('static', filename='images/crop_image.jpg') }}"
+          alt="Crop Image"
+          class="w-full h-40 object-cover rounded-md mb-4"
+        />
+        <h3 class="text-xl font-bold mb-2">Crop Recommendation</h3>
+        <p>
+          Discover the best crops to plant based on your soil and weather
+          conditions.
+        </p>
+      </div>
+      <div class="bg-white shadow-lg rounded-lg p-6">
+        <img
+          src="{{ url_for('static', filename='images/image.avif') }}"
+          alt="Fertilizer Image"
+          class="w-full h-40 object-cover rounded-md mb-4"
+        />
+        <h3 class="text-xl font-bold mb-2">Fertilizer Prediction</h3>
+        <p>
+          Get tailored fertilizer recommendations to ensure optimal crop growth.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-semibold mb-8">Why Choose Us?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-gray-100 p-6 rounded-lg shadow">
+        <i class="fas fa-seedling text-green-600 text-4xl mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Accurate Crop Recommendation</h3>
+        <p>
+          Analyze your soil and weather conditions to get the best crop
+          recommendations.
+        </p>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg shadow">
+        <i class="fas fa-hand-holding-water text-green-600 text-4xl mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Fertilizer Optimization</h3>
+        <p>
+          Receive tailored fertilizer suggestions to maximize your yield and
+          minimize waste.
+        </p>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg shadow">
+        <i class="fas fa-chart-line text-green-600 text-4xl mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Data-Driven Insights</h3>
+        <p>
+          Leverage data science to make informed decisions and increase your
+          farm's profitability.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Signup -->
+<section class="py-20 bg-gray-200">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-semibold mb-4">Stay Updated</h2>
+    <p class="mb-6">
+      Sign up for our newsletter to get the latest updates and tips on smart
+      farming.
+    </p>
+    <form class="flex justify-center">
+      <input
+        type="email"
+        placeholder="Enter your email"
+        class="border border-gray-300 p-3 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500"
+        required
+      />
+      <button
+        type="submit"
+        class="bg-green-600 text-white px-4 py-3 rounded-r-md hover:bg-green-700 transition duration-200"
+      >
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}
